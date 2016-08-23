@@ -4,9 +4,9 @@ app_secret_key = os.urandom(24)
 class Config:
 	SECRET_KEY = os.environ.get('SECRET_KEY') or app_secret_key
 	SQLALCHEMY_COMMIT_ON_TEARDOWN = True 
-	FLASKY_MAIL_SUBJECT_PREFIX = '[Blug]'
-	FLASKY_MAIL_SENDER = 'Blug Admin <achilesolomon@gmail.com>'
-	FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
+	BLUG_MAIL_SUBJECT_PREFIX = '[Blug]'
+	BLUG_MAIL_SENDER = 'Blug Admin <achilesolomon@gmail.com>'
+	BLUG_ADMIN = os.environ.get('FLASKY_ADMIN')
 	BLUG_POSTS_PER_PAGE = 20
 	BLUG_FOLLOWERS_PER_PAGE = 50
 	BLUG_COMMENTS_PER_PAGE = 30
@@ -29,13 +29,6 @@ class DevelopmentConfig(Config):
 	MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
 	'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
-	# Social Media
-	OAUTH_CREDENTIALS = {
-		'facebook': {
-        	'id': '1746005585674062',
-        	'secret': 'a2d6cd50f70e5cf8a4ccceada1ba5b74'
-    	}  
-	}
 
 class TestingConfig(Config):
 	TESTING = True
