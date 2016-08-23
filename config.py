@@ -6,7 +6,7 @@ class Config:
 	SQLALCHEMY_COMMIT_ON_TEARDOWN = True 
 	BLUG_MAIL_SUBJECT_PREFIX = '[Blug]'
 	BLUG_MAIL_SENDER = 'Blug Admin <achilesolomon@gmail.com>'
-	BLUG_ADMIN = os.environ.get('FLASKY_ADMIN')
+	BLUG_ADMIN = os.environ.get('BLUG_ADMIN')
 	BLUG_POSTS_PER_PAGE = 20
 	BLUG_FOLLOWERS_PER_PAGE = 50
 	BLUG_COMMENTS_PER_PAGE = 30
