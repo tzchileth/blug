@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Blug - Login{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Login</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+    <br>
+    <p>New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
+</div>
+<div row="col-md-12">
+<div  class="row" style="margin-top:50%; height:100%; padding:5%">
+	<div class="col-md-12 bg-success">
+		Powered by DesperateTenants 2016
+	</div>
+	</div>
+</div>
+{% endblock %}
