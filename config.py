@@ -12,6 +12,7 @@ class Config:
 	BLUG_FOLLOWERS_PER_PAGE = 50
 	BLUG_COMMENTS_PER_PAGE = 30
 	BLUG_SLOW_DB_QUERY_TIME=0.5
+	SSL_DISABLE = True
 
 
 
@@ -65,12 +66,17 @@ class HerokuConfig(ProductionConfig):
 	def init_app(cls, app):
 		ProductionConfig.init_app(app)
 
+		# handle proxy server headers
+        from werkzeug.contrib.fixers import ProxyFix
+        app.wsgi_app = ProxyFix(app.wsgi_app)
+
 		# log to stderr
 		import logging
 		from logging import StreamHandler
 		file_handler = StreamHandler()
 		file_handler.setLevel(logging.WARNING)
 		app.logger.addHandler(file_handler)
+		SSL_DISABLE = bool(os.environ.get('SSL_DISABLE'))
 
 
 config = {
