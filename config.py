@@ -1,6 +1,6 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
-app_secret_key = os.urandom(24)
+app_secret_key = '(!\xf7\xd6\xebr%\x19\xf6\xda\xaa\x06\x0c\xc9\xf1^\xd2\x9f\x89\xd9\xda\xcd\x16a'
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or app_secret_key
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True 
